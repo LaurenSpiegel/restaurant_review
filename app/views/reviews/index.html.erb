@@ -1,0 +1,51 @@
+<h1>Reviews of Rails Restaurant</h1>
+
+
+<%= form_for ReviewPost.new, url: '/new_post' do |f| %>
+Review: <br/><br/>
+
+<%= f.text_area :text_review, size: "50x6" %> 
+
+<br/><br/>
+
+Rating: <br/><br/>
+
+<%= f.radio_button(:rating, "1 Star") %>
+<%= f.label(:rating_rating1, "1 Star") %>
+<br />
+<%= f.radio_button(:rating, "2 Stars") %>
+<%= f.label(:rating_rating2, "2 Stars") %>
+<br />
+<%= f.radio_button(:rating, "3 Stars") %>
+<%= f.label(:rating_rating3, "3 Stars") %>
+<br />
+<%= f.radio_button(:rating, "4 Stars") %>
+<%= f.label(:rating_rating4, "4 Stars") %>
+
+<br />
+<%= f.radio_button(:rating, "5 Stars") %>
+<%= f.label(:rating_rating5, "5 Stars") %>
+
+<br/><br/>
+
+<%= f.submit 'Submit!' %>
+<% end %>
+
+<ul>
+  <% @review_posts.each do |post| %>
+  <li>
+    <strong> <%= post.rating %> </strong>
+  
+   
+    <br/>
+   
+    <%= post.text_review %>
+   
+    
+  </li>
+  <% end %>
+</ul>
+
+
+
+
